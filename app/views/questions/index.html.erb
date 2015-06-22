@@ -2,6 +2,6 @@ This is the page I want!  Yaaay!
 
 <ul>
 <% @questions.each do |question| %>
-<li><%= question.title %></li>
+<li><%= link_to question.title, question_path(question.id) %></li>
 <% end %>
 </ul>
