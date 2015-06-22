@@ -13,8 +13,6 @@ feature 'view specific question', %Q{
     visit root_path
     click_link "Wow this is really long!!! Kind of silly for a title, second"
     expect(page).to have_content(Question.second.description)
-
-
   end
 
 
