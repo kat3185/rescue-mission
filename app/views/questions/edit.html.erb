@@ -10,3 +10,7 @@
   <%= f.submit 'Submit Changes' %>
 <% end %>
 </div>
+
+<%= link_to 'Delete this question',
+  question_path(@question.id),
+  method: :delete %>

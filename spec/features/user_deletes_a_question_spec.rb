@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-# [ ] I must be able delete a question from the question edit page
-# [ ] I must be able delete a question from the question details page
+# [x] I must be able delete a question from the question edit page
+# [x] I must be able delete a question from the question details page
 # [ ] All answers associated with the question must also be deleted
 
 feature 'delete a question', %Q{
