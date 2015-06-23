@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = 'Your question was submitted.'
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       flash[:notice] = 'Title must be 40 characters, description must be 150.'
       render :new
@@ -37,6 +37,13 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Title must be 40 characters, description must be 150.'
       render :new
     end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    flash[:notice] = 'Question deleted!'
+    redirect_to questions_path
   end
 
   protected

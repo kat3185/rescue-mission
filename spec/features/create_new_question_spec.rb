@@ -16,7 +16,7 @@ feature 'post a new question', %Q{
     fill_in 'Description', with: "this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative this is just unreasonably repetative "
     click_button 'Add Question'
     expect(page).to have_content("Your question was submitted.")
-    expect(page).to have_content(Question.first.title)
+    expect(page).to have_content("This is a test question so I really hope this works")
   end
 
   scenario 'try to post an invalid question' do
