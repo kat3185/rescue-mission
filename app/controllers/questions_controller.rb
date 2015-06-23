@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(drink_params)
+    @question = Question.new(question_params)
     if @question.save
       flash[:notice] = 'Your question was submitted.'
       redirect_to questions_path
@@ -23,8 +23,24 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    if @question.save
+      flash[:notice] = 'Your question was updated.'
+      redirect_to questions_path(@question)
+    else
+      flash[:notice] = 'Title must be 40 characters, description must be 150.'
+      render :new
+    end
+  end
+
   protected
-  def drink_params
+  def question_params
     params.require(:question).permit(:title, :description)
   end
 end

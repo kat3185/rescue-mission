@@ -1,0 +1,10 @@
+<div class="small-12 column">
+  Edit your response:
+
+  <%= form_for @response do |f| %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.submit "Update Response" %>
+  <% end %>
+</div>

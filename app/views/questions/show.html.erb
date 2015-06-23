@@ -5,8 +5,11 @@ Question Details:
 
 <p><%= @question.description %></p>
 
+<%= link_to 'Edit this question', edit_question_path(@question) %>
+
 <% @question.responses.sort_by(&:created_at).reverse.each do |response| %>
 <li><%= response.description %></li>
+<%= link_to 'edit this response', edit_response_path(response) %>
 <% end %>
 
 <h1>Add a response</h1>
