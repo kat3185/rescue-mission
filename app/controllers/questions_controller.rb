@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.where(id: params[:id]).first
+    @response = Response.new
   end
 
   def new

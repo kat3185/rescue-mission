@@ -1,7 +1,22 @@
+<div class="small-12, column">
 Question Details:
 
 <h1><%= @question.title %>:</h1>
 
 <p><%= @question.description %></p>
 
+<% @question.responses.sort_by(&:created_at).reverse.each do |response| %>
+<li><%= response.description %></li>
+<% end %>
+
+<h1>Add a response</h1>
+<%= form_for [@question, @response] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Add Response" %>
+<% end %>
+
+
 <%= link_to 'Back to questions', questions_path %>
+</div>
